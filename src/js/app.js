@@ -28,6 +28,20 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  let socialMediaLinks = "";
+
+  if (variables.twitter) {
+    socialMediaLinks += `<li><a href="https://twitter.com/${variables.twitter}"><i class="fa fa-twitter"></i></a></li>`;
+  }
+  if (variables.github) {
+    socialMediaLinks += `<li><a href="https://github.com/${variables.github}"><i class="fa fa-github"></i></a></li>`;
+  }
+  if (variables.linkedin) {
+    socialMediaLinks += `<li><a href="https://linkedin.com/in/${variables.linkedin}"><i class="fa fa-linkedin"></i></a></li>`;
+  }
+  if (variables.instagram) {
+    socialMediaLinks += `<li><a href="https://instagram.com/${variables.instagram}"><i class="fa fa-instagram"></i></a></li>`;
+  }
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
@@ -37,10 +51,10 @@ function render(variables = {}) {
           <h2>${variables.role}</h2>
           <h3>${variables.city} ${variables.country}</h3>
           <ul class= ${variables.socialMediaPosition}>
-            <li><a href="https://twitter.com/bellaxscobie"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/bellaxscobie"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/bellaxscobie"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/bellaxscobie"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${variables.twitter}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/in/${variables.linkedin}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${variables.instagram}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
